@@ -1,12 +1,20 @@
-const Button = ({ label, iconUrl }) => {
+const Button = ({ label, iconUrl, btnNormal }) => {
+  const btnStyle = `flex justify-center items-center gap-2  px-7 py-4 rounded-full font-montserrat leading-none ${
+    !btnNormal
+      ? "text-white bg-coral-red"
+      : "bg-white text-slate-gray border-[1px] border-slate-gray"
+  }`;
+
   return (
-    <button className="flex justify-center items-center gap-2  px-7 py-4 rounded-full font-montserrat leading-none text-white bg-coral-red">
+    <button className={btnStyle}>
       {label}
-      <img
-        src={iconUrl}
-        alt="arrow right icon"
-        className="ml-2 rounded-full w-5 h-5"
-      />
+      {iconUrl && (
+        <img
+          src={iconUrl}
+          alt="arrow right icon"
+          className="ml-2 rounded-full w-5 h-5 border-2"
+        />
+      )}
     </button>
   );
 };
