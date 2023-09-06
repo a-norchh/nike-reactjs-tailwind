@@ -1,8 +1,15 @@
 import { star } from "../assets/icons";
+import { motion } from "framer-motion";
 
 const PopularProductCard = ({ imageUrl, name, price }) => {
   return (
-    <div className="cursor-pointer transition-transform hover:-translate-y-2">
+    <motion.div
+      className="cursor-pointer"
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ ease: "easeOut", duration: 0.5 }}
+      viewport={{ once: true }}
+    >
       <img src={imageUrl} alt="" className="w-[280px] h-[280px]" />
       <div className="mt-6 flex justify-start items-center gap-2.5">
         <img src={star} alt="star" />
@@ -14,7 +21,7 @@ const PopularProductCard = ({ imageUrl, name, price }) => {
       <div className="mt-2 font-semibold font-montserrat text-coral-red text-2lx leading-normal">
         {price}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

@@ -10,10 +10,16 @@ import {
 } from "./sections";
 
 import Nav from "./components/Nav";
+import { motion } from "framer-motion";
 
 const App = () => {
   return (
-    <main className="relative">
+    <motion.main
+      className="relative"
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      transition={{ duration: 0.5, delay: 0.5 }}
+    >
       <Nav />
       <section className="xl:padding-l wide:padding-r padding-b">
         <Hero />
@@ -39,7 +45,7 @@ const App = () => {
       <section className="bg-black padding-x padding-t pb-8">
         <Footer />
       </section>
-    </main>
+    </motion.main>
   );
 };
 

@@ -1,11 +1,4 @@
-import {
-  facebook,
-  instagram,
-  shieldTick,
-  support,
-  truckFast,
-  twitter,
-} from "../assets/icons";
+import { github, shieldTick, support, truckFast } from "../assets/icons";
 
 import {
   bigShoe1,
@@ -141,7 +134,5 @@ export const footerLinks = [
 ];
 
 export const socialMedia = [
-  { src: facebook, alt: "facebook logo" },
-  { src: twitter, alt: "twitter logo" },
-  { src: instagram, alt: "instagram logo" },
+  { src: github, alt: "github logo", link: "https://github.com/a-norchh" },
 ];

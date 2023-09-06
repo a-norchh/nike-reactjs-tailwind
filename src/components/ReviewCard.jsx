@@ -1,10 +1,17 @@
 import { star } from "../assets/icons";
+import { motion } from "framer-motion";
 
 const ReviewCard = ({ details }) => {
   const { imgURL, customerName, rating, feedback } = details;
 
   return (
-    <div className="flex flex-col justify-center items-center">
+    <motion.div
+      className="flex flex-col justify-center items-center"
+      initial={{ opacity: 0, y: 100 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      transition={{ ease: "easeOut", duration: 0.5 }}
+      viewport={{ once: true }}
+    >
       <img
         src={imgURL}
         alt=""
@@ -18,7 +25,7 @@ const ReviewCard = ({ details }) => {
       <h3 className="mt-1 font-palanquin text-3xl text-center font-bold">
         {customerName}
       </h3>
-    </div>
+    </motion.div>
   );
 };
 

@@ -1,15 +1,34 @@
 import Button from "../components/Button";
 import { arrowRight } from "../assets/icons";
 import { shoe8 } from "../assets/images";
+import { motion } from "framer-motion";
 
 const SuperQuality = () => {
+  const animSetting = {
+    inView: {
+      x: 0,
+      opacity: 1,
+      transition: {
+        delay: 0.3,
+        ease: "easeInOut",
+        duration: 0.5,
+      },
+    },
+  };
+
   return (
     <section
       id="about-us"
       className="flex justify-between items-center max-lg:flex-col gap-10 w-full max-container sm:py-24"
     >
       {/* LEFT CONTAIN */}
-      <div className="flex flex-1 flex-col">
+      <motion.div
+        className="flex flex-1 flex-col"
+        variants={animSetting}
+        initial={{ x: -150, opacity: 0 }}
+        whileInView="inView"
+        viewport={{ once: true }}
+      >
         <h2 className="font-palanquin text-4xl capitalize font-bold lg:max-w-lg">
           We Provide You <span className="text-coral-red">Super Quality </span>
           Shoes
@@ -25,12 +44,18 @@ const SuperQuality = () => {
         <div className="mt-11">
           <Button label="Shop now" iconUrl={arrowRight} />
         </div>
-      </div>
+      </motion.div>
 
       {/* RIGHT CONTAIN */}
-      <div className="flex flex-1 justify-center">
+      <motion.div
+        className="flex flex-1 justify-center"
+        variants={animSetting}
+        initial={{ x: 150, opacity: 0 }}
+        whileInView="inView"
+        viewport={{ once: true }}
+      >
         <img src={shoe8} alt="Shoe image" width={570} height={522} />
-      </div>
+      </motion.div>
     </section>
   );
 };

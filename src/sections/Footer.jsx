@@ -19,7 +19,7 @@ const Footer = () => {
                 key={social.alt}
                 className="w-12 h-12 bg-white rounded-full flex justify-center items-center"
               >
-                <a href="/">
+                <a href={social.link} target="_blank" rel="noreferrer">
                   <img
                     src={social.src}
                     alt={social.alt}
