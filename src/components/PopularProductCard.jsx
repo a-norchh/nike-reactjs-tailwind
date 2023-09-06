@@ -2,7 +2,7 @@ import { star } from "../assets/icons";
 
 const PopularProductCard = ({ imageUrl, name, price }) => {
   return (
-    <div>
+    <div className="cursor-pointer transition-transform hover:-translate-y-2">
       <img src={imageUrl} alt="" className="w-[280px] h-[280px]" />
       <div className="mt-6 flex justify-start items-center gap-2.5">
         <img src={star} alt="star" />
