@@ -9,6 +9,10 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  /* scroll-behavior: smooth; */
+}
+
+html {
   scroll-behavior: smooth;
 }
 
@@ -29,7 +33,7 @@
 
 @layer utilities {
   .padding {
-    @apply sm:px-16 px-8 sm:py-24 py-12;
+    @apply sm:px-16 px-8 sm:py-0 py-12;
   }
 
   .padding-x {
