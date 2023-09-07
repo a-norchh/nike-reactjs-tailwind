@@ -1,14 +1,37 @@
+import { useState, useEffect } from "react";
 import { headerLogo } from "../assets/images";
 import { hamburger } from "../assets/icons";
 import { navLinks } from "../constants";
 
 const Nav = () => {
+  const [stickyMenu, setStickyMenu] = useState(false);
+
+  const stickyActive = () => {
+    if (window.scrollY > 0) {
+      setStickyMenu(true);
+    } else {
+      setStickyMenu(false);
+    }
+  };
+
+  useEffect(() => {
+    stickyActive();
+  }, []);
+
+  window.addEventListener("scroll", stickyActive);
+
   return (
-    <header className="padding-x py-8 absolute z-10 w-full">
+    <header
+      className={`padding-x py-8 absolute z-[99] w-full ${
+        stickyMenu ? "sticky" : ""
+      }`}
+    >
       <nav className="flex justify-between items-center max-container">
         <a href="/">
           <img src={headerLogo} alt="Logo" width={130} height={29} />
         </a>
+
+        {/* ABOVE 1024 */}
         <ul className="flex-1 flex justify-center items-center gap-16 max-lg:hidden">
           {navLinks.map((item) => (
             <li key={item.label}>
@@ -21,6 +44,8 @@ const Nav = () => {
             </li>
           ))}
         </ul>
+
+        {/* BELOW 1024 */}
         <div className="hidden max-lg:block cursor-pointer">
           <img src={hamburger} alt="hamburger menu" width={25} height={25} />
         </div>
