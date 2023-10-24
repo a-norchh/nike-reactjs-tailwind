@@ -23,6 +23,15 @@ header.sticky {
   box-shadow: 0rem -0.5rem 1rem rgba(0, 0, 0, 0.3);
 }
 
+.small-nav {
+  transition: all 0.4s;
+  box-shadow: -0.1rem -0.1rem 0.5rem rgba(0, 0, 0, 0.3);
+}
+
+.small-nav.active {
+  right: 0;
+}
+
 @layer components {
   .max-container {
     max-width: 1440px;
